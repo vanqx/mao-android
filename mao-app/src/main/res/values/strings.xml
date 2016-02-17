@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Vanq</string>
+
+    <!-- nsd -->
+    <string name="connect">Connect</string>
+    <string name="discover">Discover</string>
+    <string name="register">Register</string>
+    <string name="send">Send</string>
+</resources>
