@@ -19,7 +19,7 @@ import com.ichangmao.commons.MaoLog;
 
 public class NsdFragment extends Fragment {
 
-    private MaoLog log = MaoLog.getLoger(this.getClass().getSimpleName());
+    private MaoLog log = MaoLog.getLogger(this.getClass().getSimpleName());
     NsdHelper mNsdHelper;
 
     private View rootView;

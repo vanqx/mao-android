@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MainActivity extends FragmentActivity implements OnMainFragmentInteraction {
 
-    private MaoLog log = MaoLog.getLoger(this.getClass().getSimpleName());
+    private MaoLog log = MaoLog.getLogger(this.getClass().getSimpleName());
 
     private static final List<FuncItem> FUNC_ITEMS = new ArrayList<>();
 

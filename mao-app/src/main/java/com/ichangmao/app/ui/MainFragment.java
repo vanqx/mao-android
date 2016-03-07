@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class MainFragment extends Fragment {
 
-    MaoLog log = MaoLog.getLoger(this.getClass().getSimpleName());
+    MaoLog log = MaoLog.getLogger(this.getClass().getSimpleName());
 
     private OnMainFragmentInteraction mListener;
 

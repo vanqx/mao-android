@@ -11,7 +11,7 @@ import android.text.TextUtils;
  * Created by yangchangmao on 2016/2/16.
  */
 public class Utils {
-    private static MaoLog log = MaoLog.getLoger("commons.Utils");
+    private static MaoLog log = MaoLog.getLogger("commons.Utils");
 
     /**
      * 获取账号名，优先返回google账号

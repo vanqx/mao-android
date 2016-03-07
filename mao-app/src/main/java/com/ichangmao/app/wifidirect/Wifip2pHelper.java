@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
  */
 public class Wifip2pHelper {
 
-    MaoLog log = MaoLog.getLoger("Wifip2pHelper");
+    MaoLog log = MaoLog.getLogger("Wifip2pHelper");
 
     WifiP2pManager mWifiP2pManager;
     WifiP2pManager.Channel mChannel;

@@ -26,7 +26,7 @@ import com.ichangmao.commons.MaoLog;
 
 public class WifiDirectFragment extends Fragment {
 
-    MaoLog log = MaoLog.getLoger(this.getClass().getSimpleName());
+    MaoLog log = MaoLog.getLogger(this.getClass().getSimpleName());
     WiFiDirectBroadcastReceiver mWiFiDirectBroadcastReceiver;
     WifiDirectHelper mWifiDirectHelper;
     WifiP2pDevice myDevice;

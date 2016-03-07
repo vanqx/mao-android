@@ -9,7 +9,7 @@ public class MaoLog {
         mTag = tag;
     }
 
-    public static MaoLog getLoger(String tag) {
+    public static MaoLog getLogger(String tag) {
         return new MaoLog(tag);
     }
 

@@ -25,7 +25,7 @@ import com.ichangmao.commons.Utils;
 
 public class NsdHelper {
 
-    MaoLog log = MaoLog.getLoger("NsdHelper");
+    MaoLog log = MaoLog.getLogger("NsdHelper");
     Context mContext;
 
     NsdManager mNsdManager;

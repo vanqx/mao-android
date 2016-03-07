@@ -13,7 +13,7 @@ import com.ichangmao.commons.MaoLog;
  * Created by yangchangmao on 2016/2/25.
  */
 public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
-    MaoLog log = MaoLog.getLoger(this.getClass().getSimpleName());
+    MaoLog log = MaoLog.getLogger(this.getClass().getSimpleName());
 
     WifiDirectFragment mWifiDirectFragment;
 

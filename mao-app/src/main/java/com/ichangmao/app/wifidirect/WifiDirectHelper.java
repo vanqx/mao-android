@@ -38,7 +38,7 @@ public class WifiDirectHelper {
 
     WifiP2pManager mWifiP2pManager;
     WifiP2pManager.Channel mChannel;
-    MaoLog log = MaoLog.getLoger(this.getClass().getSimpleName());
+    MaoLog log = MaoLog.getLogger(this.getClass().getSimpleName());
 
     public WifiDirectHelper(WifiP2pManager wifiP2pManager, WifiP2pManager.Channel channel) {
         mWifiP2pManager = wifiP2pManager;

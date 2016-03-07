@@ -37,7 +37,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class ChatConnection {
 
-    MaoLog log = MaoLog.getLoger("ChatConnection");
+    MaoLog log = MaoLog.getLogger("ChatConnection");
     private Handler mUpdateHandler;
     private ChatServer mChatServer;
     private ChatClient mChatClient;
