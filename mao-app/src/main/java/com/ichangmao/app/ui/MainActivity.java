@@ -74,6 +74,9 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
             //Network Service Discovery
             fragment = new NsdFragment();
 
+        } else if (wifiDirectItem == item) {
+            fragment = new WifiDirectFragment();
+
         }
 
         if (fragment != null) {
@@ -92,9 +95,11 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
 
     //定义功能项
     static final FuncItem nsdItem = new FuncItem("nsd");
+    static final FuncItem wifiDirectItem = new FuncItem("WifiDirect");
 
     //将功能项加入到FUNC_ITEMS
     static {
         FUNC_ITEMS.add(nsdItem);
+        FUNC_ITEMS.add(wifiDirectItem);
     }
 }

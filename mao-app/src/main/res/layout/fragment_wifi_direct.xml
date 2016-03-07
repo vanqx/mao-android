@@ -4,10 +4,51 @@
              android:layout_height="match_parent"
              tools:context="com.ichangmao.app.ui.WifiDirectFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txt_device_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint_device_name"
+                android:singleLine="true"/>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0"
+                android:enabled="false"
+                android:text="@string/save"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_device_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="getWifiP2pDeviceList"/>
+
+        <Button
+            android:id="@+id/btn_connection_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="getConnectionInfo"/>
+
+        <Button
+            android:id="@+id/btn_p2p_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="getWifiP2pGroup"/>
+    </LinearLayout>
 </FrameLayout>

@@ -6,4 +6,6 @@
     <string name="discover">Discover</string>
     <string name="register">Register</string>
     <string name="send">Send</string>
+    <string name="hint_device_name">input my device name</string>
+    <string name="save">save</string>
 </resources>

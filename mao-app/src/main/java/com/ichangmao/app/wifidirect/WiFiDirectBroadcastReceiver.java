@@ -1,30 +1,29 @@
 package com.ichangmao.app.wifidirect;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pManager;
-import android.net.wifi.p2p.WifiP2pManager.Channel;
 
-import com.cleanmaster.snapshare.util.CmLog;
-import com.cleanmaster.snapshare.util.ShareBaseReceiver;
+import com.ichangmao.app.ui.WifiDirectFragment;
+import com.ichangmao.commons.MaoLog;
 
 /**
  * Created by yangchangmao on 2016/2/25.
  */
-public class WiFiDirectBroadcastReceiver extends ShareBaseReceiver {
-    CmLog log = CmLog.getLogger(this.getClass().getSimpleName());
+public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
+    MaoLog log = MaoLog.getLoger(this.getClass().getSimpleName());
 
-    public WiFiDirectBroadcastReceiver(WifiP2pManager manager, Channel channel, WiFiDirectGroupServer p2pGroupServer) {
+    WifiDirectFragment mWifiDirectFragment;
+
+    public WiFiDirectBroadcastReceiver(WifiDirectFragment wifiDirectFragment) {
         super();
+        mWifiDirectFragment = wifiDirectFragment;
     }
 
     @Override
-    public void onReceiveInter(Context context, Intent intent) {
-
-    }
-
-    @Override
-    public void onReceiveInterAsync(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         log.d("action:" + action);
         if (WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION.equals(action)) {
@@ -48,10 +47,8 @@ public class WiFiDirectBroadcastReceiver extends ShareBaseReceiver {
             // that.
 
         } else if (WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION.equals(action)) {
-//            DeviceListFragment fragment = (DeviceListFragment) activity.getFragmentManager()
-//                    .findFragmentById(R.id.frag_list);
-//            fragment.updateThisDevice((WifiP2pDevice) intent.getParcelableExtra(
-//                    WifiP2pManager.EXTRA_WIFI_P2P_DEVICE));
+            mWifiDirectFragment.updateThisDevice((WifiP2pDevice) intent.getParcelableExtra(
+                    WifiP2pManager.EXTRA_WIFI_P2P_DEVICE));
 
         }
     }

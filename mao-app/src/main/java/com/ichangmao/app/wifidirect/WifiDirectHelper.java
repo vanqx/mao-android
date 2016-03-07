@@ -1,6 +1,7 @@
 package com.ichangmao.app.wifidirect;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.net.wifi.p2p.WifiP2pDeviceList;
 import android.net.wifi.p2p.WifiP2pGroup;
 import android.net.wifi.p2p.WifiP2pInfo;
@@ -9,6 +10,9 @@ import android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener;
 import android.net.wifi.p2p.WifiP2pManager.GroupInfoListener;
 import android.net.wifi.p2p.WifiP2pManager.PeerListListener;
 import android.os.Build;
+import android.os.HandlerThread;
+
+import com.ichangmao.commons.MaoLog;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -34,10 +38,23 @@ public class WifiDirectHelper {
 
     WifiP2pManager mWifiP2pManager;
     WifiP2pManager.Channel mChannel;
+    MaoLog log = MaoLog.getLoger(this.getClass().getSimpleName());
 
     public WifiDirectHelper(WifiP2pManager wifiP2pManager, WifiP2pManager.Channel channel) {
         mWifiP2pManager = wifiP2pManager;
         mChannel = channel;
+    }
+
+    public WifiDirectHelper(Context context) {
+        mWifiP2pManager = (WifiP2pManager) context.getSystemService(Context.WIFI_P2P_SERVICE);
+        HandlerThread handlerThread = new HandlerThread("WiFiDirectHandlerThread");
+        handlerThread.start();
+        mChannel = mWifiP2pManager.initialize(context, handlerThread.getLooper(), new WifiP2pManager.ChannelListener() {
+            @Override
+            public void onChannelDisconnected() {
+                log.i("onChannelDisconnected");
+            }
+        });
     }
 
 
@@ -82,7 +99,7 @@ public class WifiDirectHelper {
         }
     }
 
-    public WifiP2pInfo getWifiP2pInfo() {
+    public WifiP2pInfo getConnectionInfo() {
         SnapConnectionInfoListener snapConnectionInfoListener = new SnapConnectionInfoListener();
         synchronized (snapConnectionInfoListener.mRequestLock) {
             mWifiP2pManager.requestConnectionInfo(mChannel, snapConnectionInfoListener);
