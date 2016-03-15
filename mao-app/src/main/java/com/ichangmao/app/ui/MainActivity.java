@@ -1,13 +1,13 @@
 package com.ichangmao.app.ui;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 
 import com.ichangmao.app.R;
-import com.ichangmao.commons.MaoLog;
 import com.ichangmao.app.ui.MainFragment.OnMainFragmentInteraction;
+import com.ichangmao.commons.MaoLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +77,12 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
         } else if (wifiDirectItem == item) {
             fragment = new WifiDirectFragment();
 
+        } else if (cameraItem == item) {
+            fragment = new CameraFragment();
+
+        } else if (videoRecordItem == item) {
+            fragment = new VideoRecordFragment();
+
         }
 
         if (fragment != null) {
@@ -96,10 +102,14 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
     //定义功能项
     static final FuncItem nsdItem = new FuncItem("nsd");
     static final FuncItem wifiDirectItem = new FuncItem("WifiDirect");
+    static final FuncItem cameraItem = new FuncItem("camera");
+    static final FuncItem videoRecordItem = new FuncItem("VideoRecord");
 
     //将功能项加入到FUNC_ITEMS
     static {
         FUNC_ITEMS.add(nsdItem);
         FUNC_ITEMS.add(wifiDirectItem);
+        FUNC_ITEMS.add(cameraItem);
+        FUNC_ITEMS.add(videoRecordItem);
     }
 }

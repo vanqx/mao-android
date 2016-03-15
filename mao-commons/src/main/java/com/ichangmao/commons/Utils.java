@@ -4,6 +4,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.os.Environment;
 import android.provider.Settings;
 import android.text.TextUtils;
 
@@ -48,5 +49,9 @@ public class Utils {
     public static String getXAID(Context context) {
         ContentResolver cr = context.getContentResolver();
         return Settings.Secure.getString(cr, Settings.Secure.ANDROID_ID);
+    }
+
+    public static String getSdcardPath() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath();
     }
 }

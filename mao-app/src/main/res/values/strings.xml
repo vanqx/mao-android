@@ -8,4 +8,8 @@
     <string name="send">Send</string>
     <string name="hint_device_name">input my device name</string>
     <string name="save">save</string>
+    <string name="capture">Capture</string>
+    <string name="video">video</string>
+    <string name="record">Record</string>
+    <string name="stop">Stop</string>
 </resources>
