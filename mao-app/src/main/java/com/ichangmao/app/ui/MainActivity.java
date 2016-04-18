@@ -83,6 +83,9 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
         } else if (videoRecordItem == item) {
             fragment = new VideoRecordFragment();
 
+        } else if (tcpItem == item) {
+            fragment = new TcpFragment();
+
         }
 
         if (fragment != null) {
@@ -104,6 +107,7 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
     static final FuncItem wifiDirectItem = new FuncItem("WifiDirect");
     static final FuncItem cameraItem = new FuncItem("camera");
     static final FuncItem videoRecordItem = new FuncItem("VideoRecord");
+    static final FuncItem tcpItem = new FuncItem("tcp");
 
     //将功能项加入到FUNC_ITEMS
     static {
@@ -111,5 +115,6 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
         FUNC_ITEMS.add(wifiDirectItem);
         FUNC_ITEMS.add(cameraItem);
         FUNC_ITEMS.add(videoRecordItem);
+        FUNC_ITEMS.add(tcpItem);
     }
 }
