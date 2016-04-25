@@ -28,7 +28,7 @@ public class TcpFragment extends Fragment {
             }
 
         }.start();
-        View rootView = inflater.inflate(R.layout.fragment_simple, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_sample, container, false);
         TextView txt_content = (TextView) rootView.findViewById(R.id.txt_content);
         txt_content.setText("Tcp server is running...");
         return rootView;
