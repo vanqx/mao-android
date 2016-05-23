@@ -2,6 +2,7 @@ package com.ichangmao.app.ui;
 
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -44,10 +45,42 @@ public class JniFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_ok:
-                int times = 100000;
-                mMaoJni.test(times);
-                test(times);
+//                int times = 100000;
+//                mMaoJni.test(times);
+//                test(times);
+                new Thread() {
+                    @Override
+                    public void run() {
+//                        getFileSize();
+                        getFolderSize();
+                    }
+                }.start();
         }
+    }
+
+    void getFolderSize() {
+        String root = Environment.getExternalStorageDirectory().getAbsolutePath();
+//        String path = root + "/tencent/MicroMsg/fad12b7e676d4c31c927b98f5498c048/emoji/";
+        String path = root + "/tencent/MicroMsg/fad12b7e676d4c31c927b98f5498c048/sfs/sns/";
+        long[] result = new long[3];
+        long start = SystemClock.uptimeMillis();
+        mMaoJni.calcFileSize(path, result, 1);
+        long time = SystemClock.uptimeMillis() - start;
+        System.out.println("result:[" + result[0] + "," + result[1] + "," + result[2] + "]");
+        System.out.println("1 cost time:" + time);
+
+        start = SystemClock.uptimeMillis();
+        mMaoJni.calcFileSize(path, result, 2);
+        time = SystemClock.uptimeMillis() - start;
+        System.out.println("result:[" + result[0] + "," + result[1] + "," + result[2] + "]");
+        System.out.println("2 cost time:" + time);
+    }
+
+    void getFileSize() {
+        String root = Environment.getExternalStorageDirectory().getAbsolutePath();
+        long size = mMaoJni.getFileSize(root + "/tencent/MicroMsg/fad12b7e676d4c31c927b98f5498c048/sfs/sns/"
+                + "log.zip");
+        log.d("file size:" + size);
     }
 
     void test(int times) {
