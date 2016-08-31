@@ -4,9 +4,11 @@ import android.net.Uri;
 import android.os.Environment;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -80,5 +82,51 @@ public class IOUtils {
         }
 
         return path;
+    }
+
+    public static boolean copyFileByChannel(File src, File dest) {
+        try {
+            int length;
+            FileInputStream in = new FileInputStream(src);
+            FileOutputStream out = new FileOutputStream(dest);
+            FileChannel inC = in.getChannel();
+            FileChannel outC = out.getChannel();
+            while (true) {
+                if (inC.position() == inC.size()) {
+                    inC.close();
+                    outC.close();
+                    return true;
+                }
+                if ((inC.size() - inC.position()) < 20971520)
+                    length = (int) (inC.size() - inC.position());
+                else
+                    length = 20971520;
+                inC.transferTo(inC.position(), length, outC);
+                inC.position(inC.position() + length);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static long getFileSize(String path) {
+        File file = new File(path);
+        if (file.isFile()) {
+            return file.length();
+        } else if (file.isDirectory()) {
+            String parent = path;
+            if (!parent.endsWith("/")) {
+                parent += "/";
+            }
+            String[] files = file.list();
+            long size = 0;
+            for (String f : files) {
+                size += getFileSize(parent + f);
+            }
+            return size;
+        } else {
+            return 0;
+        }
     }
 }

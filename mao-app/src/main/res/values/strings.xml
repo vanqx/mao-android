@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vanq</string>
+    <string name="app_name">Mao</string>
 
     <!-- nsd -->
     <string name="connect">Connect</string>
@@ -13,4 +13,8 @@
     <string name="record">Record</string>
     <string name="stop">Stop</string>
     <string name="ok">OK</string>
+    <string name="root">root</string>
+    <string name="compute_with_fuse">compute file size with fuse</string>
+    <string name="compute_without_fuse">compute file size without fuse</string>
+    <string name="checkroot">check root</string>
 </resources>
