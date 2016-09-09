@@ -1,1 +1,1 @@
-include ':mao-app', ':mao-commons'
+include ':mao-app', ':mao-commons', ':mao-http'
