@@ -1,0 +1,1 @@
+%NDK_HOME%\ndk-build.cmd
