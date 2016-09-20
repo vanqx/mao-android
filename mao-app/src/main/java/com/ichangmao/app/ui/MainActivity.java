@@ -96,6 +96,9 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
         } else if (rootItem == item) {
             fragment = new RootFragment();
 
+        } else if (httpItem == item) {
+            fragment = new HttpFragment();
+
         }
 
         if (fragment != null) {
@@ -121,6 +124,7 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
     static final FuncItem jniItem = new FuncItem("jni");
     static final FuncItem dbItem = new FuncItem("db");
     static final FuncItem rootItem = new FuncItem("root");
+    static final FuncItem httpItem = new FuncItem("http");
 
     //将功能项加入到FUNC_ITEMS
     static {
@@ -132,5 +136,6 @@ public class MainActivity extends FragmentActivity implements OnMainFragmentInte
         FUNC_ITEMS.add(jniItem);
         FUNC_ITEMS.add(dbItem);
         FUNC_ITEMS.add(rootItem);
+        FUNC_ITEMS.add(httpItem);
     }
 }

@@ -31,6 +31,7 @@ String PLATFORMS_VER = "android-8"
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':mao-commons')
+    compile project(':mao-http')
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.android.support:recyclerview-v7:23.2.1'
